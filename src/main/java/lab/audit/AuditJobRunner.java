@@ -20,8 +20,12 @@ public final class AuditJobRunner implements AutoCloseable {
     public JobResult runTenantExport(String tenantId, String orderId) {
         return await(executor.submit(() -> {
             TenantContext.enter(tenantId);
-            trace("tenant-export-entry");
-            return record("TENANT_EXPORT", orderId);
+            try {
+                trace("tenant-export-entry");
+                return record("TENANT_EXPORT", orderId);
+            } finally {
+                TenantContext.clear();
+            }
         }));
     }
 
