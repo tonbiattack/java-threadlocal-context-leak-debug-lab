@@ -1,0 +1,20 @@
+Initializing jdb ...
+> stop in lab.audit.AuditJobRunner.record
+Deferring breakpoint lab.audit.AuditJobRunner.record.
+It will be set after the class is loaded.
+> run
+run lab.audit.AuditJobRunnerDiagnostic
+Set uncaught java.lang.Throwable
+Set deferred uncaught java.lang.Throwable
+>
+VM Started: Set deferred breakpoint lab.audit.AuditJobRunner.record
+Breakpoint hit: "thread=audit-worker-1", lab.audit.AuditJobRunner.record(), line=57 bci=0
+audit-worker-1[1] print lab.audit.TenantContext.currentTenantLabel()
+ lab.audit.TenantContext.currentTenantLabel() = "tenant-a"
+audit-worker-1[1] cont
+>
+Breakpoint hit: "thread=audit-worker-1", lab.audit.AuditJobRunner.record(), line=57 bci=0
+audit-worker-1[1] print lab.audit.TenantContext.currentTenantLabel()
+ lab.audit.TenantContext.currentTenantLabel() = "tenant-a"
+audit-worker-1[1] cont
+quit

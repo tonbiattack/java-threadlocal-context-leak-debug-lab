@@ -1,0 +1,7 @@
+PASS tenant_job_is_attributed_to_its_tenant
+PASS unscoped_job_uses_system_when_worker_has_no_history
+FAIL unscoped_job_is_not_attributed_to_previous_tenant
+  direct job result: expected <SYSTEM> but was <tenant-a>
+  persisted audit event: expected <SYSTEM> but was <tenant-a>
+Exception in thread "main" java.lang.AssertionError: 1 test(s) failed
+	at lab.audit.AuditJobRunnerTest.main(AuditJobRunnerTest.java:29)

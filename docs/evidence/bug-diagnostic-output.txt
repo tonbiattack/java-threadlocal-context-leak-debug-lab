@@ -1,0 +1,6 @@
+RESULT tenantJob=JobResult[operation=TENANT_EXPORT, orderId=order-100, attributedTenant=tenant-a, workerName=audit-worker-1]
+RESULT systemJob=JobResult[operation=SYSTEM_RECONCILIATION, orderId=order-200, attributedTenant=tenant-a, workerName=audit-worker-1]
+TRACE phase=tenant-export-entry worker=audit-worker-1 context=tenant-a
+TRACE phase=system-reconciliation-entry worker=audit-worker-1 context=tenant-a
+LEDGER AuditEvent[operation=TENANT_EXPORT, orderId=order-100, attributedTenant=tenant-a, workerName=audit-worker-1]
+LEDGER AuditEvent[operation=SYSTEM_RECONCILIATION, orderId=order-200, attributedTenant=tenant-a, workerName=audit-worker-1]
